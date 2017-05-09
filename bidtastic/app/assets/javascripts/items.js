@@ -4,7 +4,7 @@
 $(document).ready(function() {
 
   // Favoriting
-  $('.TBD').on('click', '.fav-heart', function(event) {
+  $('body').on('click', '.fav-heart', function(event) {
     let itemId = $(this).data("itemid")
     $(this).removeClass('fav-heart')
     $(this).addClass('faved-heart')
@@ -16,7 +16,7 @@ $(document).ready(function() {
   })
 
   // Unfavoriting
-  $('.TBD').on('click', '.faved-heart', function(event) {
+  $('body').on('click', '.faved-heart', function(event) {
     let itemId = $(this).data("itemid")
     $(this).removeClass('faved-heart')
     $(this).addClass('fav-heart')

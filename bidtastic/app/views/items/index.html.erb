@@ -9,7 +9,20 @@
     <div class="col-sm-6 col-md-4">
       <%- @items.each do |item| %>
     <div class="thumbnail">
-        <h4><%= item.name %><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></h4>
+        <h4><%= item.name %></h4>
+
+        <% if logged_in? && favorited(item.id) == true %>
+           <h4 class="faved-heart" data-remote=true data-type=script data-itemid="<%= item.id %>"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></h4>
+        <% elsif logged_in? && favorited(item.id) == false %>
+         <h4 class="fav-heart" data-remote=true data-type=script data-itemid="<%= item.id %>"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></h4>
+        <% end %>
+
+
+
+
+
+
+
         <%= item.image_data %>
         <div class="caption">
           <h5>Current Bid:</h5>

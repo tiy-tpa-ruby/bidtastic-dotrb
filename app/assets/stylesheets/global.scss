@@ -1,5 +1,4 @@
 .placebid {
-
   background-color: rgb(187, 149, 35);
   font-weight: normal;
 }
@@ -8,7 +7,22 @@
 
 }
 
-.faved-heart{
+.fav-heart {
+  font-size: 30px;
+}
 
+.faved-heart {
+  font-size: 30px;
   color: red;
+}
+
+.custom-header {
+  color: hsl(47, 90%, 82%);
+}
+
+.textline {
+  margin: 5px 5px 0;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
 }

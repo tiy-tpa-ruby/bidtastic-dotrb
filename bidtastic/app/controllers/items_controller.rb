@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+  class ItemsController < ApplicationController
   # GET /items
   def index
     @items = Item.all
@@ -51,6 +51,6 @@ class ItemsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def item_params
-    params.require(:item).permit(:name, :description, :created_by, :category, :minimum_bid, :bid_increment, :image_data)
+    params.require(:item).permit(:name, :description, :created_by, :category, :minimum_bid, :bid_increment, :image)
   end
 end

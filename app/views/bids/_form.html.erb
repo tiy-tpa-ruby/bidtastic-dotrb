@@ -1,0 +1,7 @@
+<%= form_for([@item, @item.bids.build]) do |f| %>
+  <p>
+    <%= f.label :bid_amount %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>

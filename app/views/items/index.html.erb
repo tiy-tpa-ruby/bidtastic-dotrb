@@ -6,8 +6,8 @@
   <h1 class="custom-header">Welcome to The Annual Bones' Gala Auction</h1>
 </div>
 <div class="row">
+  <%- @items.each do |item| %>
   <div class="col-sm-6 col-md-4">
-    <%- @items.each do |item| %>
     <div class="thumbnail">
       <div class="textline">
         <h4><%= item.name %></h4>
@@ -35,6 +35,6 @@
         <% end %>
       </div>
     </div>
-    <% end %>
   </div>
+  <% end %>
 </div>

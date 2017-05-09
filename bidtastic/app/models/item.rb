@@ -4,4 +4,6 @@ class Item < ApplicationRecord
   validates :category, presence: true
   validates :minimum_bid, presence: true
   validates :bid_increment, presence: true
+
+  has_many :bids
 end

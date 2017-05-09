@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   // Favoriting
   $('.TBD').on('click', '.fav-heart', function(event) {
-    let homeId = $(this).data("itemid")
+    let itemId = $(this).data("itemid")
     $(this).removeClass('fav-heart')
     $(this).addClass('faved-heart')
 

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   get '/logout' => 'session#destroy'
 
+  mount Shrine::DownloadEndpoint => "/attachments"
 end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+
+  get 'favorites/destroy'
+
   resources :items
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -14,4 +18,8 @@ Rails.application.routes.draw do
   get '/logout' => 'session#destroy'
 
   mount Shrine::DownloadEndpoint => "/attachments"
+
+  post 'favorites/:itemId'           => 'favorites#create'
+  delete 'favorites/destroy/:itemId' => 'favorites#destroy'
+
 end

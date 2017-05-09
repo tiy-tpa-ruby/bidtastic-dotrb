@@ -2,10 +2,9 @@
 // All this logic will automatically be available in application.js.
 
 $(document).ready(function() {
-console.log('setting up click handlers')
+
   // Favoriting
   $('body').on('click', '.fav-heart', function(event) {
-    console.log('clicked on fav-heart')
     let itemId = $(this).data("itemid")
     $(this).removeClass('fav-heart')
     $(this).addClass('faved-heart')
@@ -18,7 +17,6 @@ console.log('setting up click handlers')
 
   // Unfavoriting
   $('body').on('click', '.faved-heart', function(event) {
-    console.log('clicked on faved-heart')
     let itemId = $(this).data("itemid")
     $(this).removeClass('faved-heart')
     $(this).addClass('fav-heart')

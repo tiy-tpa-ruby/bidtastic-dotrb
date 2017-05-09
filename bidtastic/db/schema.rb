@@ -15,6 +15,18 @@ ActiveRecord::Schema.define(version: 20170508200657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "created_by"
+    t.string   "category"
+    t.integer  "minimum_bid"
+    t.integer  "bid_increment"
+    t.text     "image_data"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "bids", force: :cascade do |t|
     t.integer  "created_by_id"
     t.integer  "bid_amount"
@@ -32,5 +44,4 @@ ActiveRecord::Schema.define(version: 20170508200657) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
-
 end

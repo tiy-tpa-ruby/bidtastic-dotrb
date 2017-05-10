@@ -1,13 +1,15 @@
+<div class= "edhead">
+
 <div class="page-header">
   <%= link_to items_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Auction List
   <% end %>
-  <%= link_to @item, class: 'btn btn-primary' do %>
+  <%= link_to @item, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-info-sign"></span>
-    Show
+    Item information
   <% end %>
-  <h1>Editing item</h1>
+  <h1>Edit: <%= @item.name %></h1>
+ </div>
 </div>
-
 <%= render 'form' %>

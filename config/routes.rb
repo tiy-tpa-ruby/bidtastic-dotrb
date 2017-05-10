@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   post '/signin'   => 'admin_session#create'
   get  '/signout'  => 'admin_session#destroy'
 
-
   mount Shrine::DownloadEndpoint => "/attachments"
 
   post 'favorites/:itemId'           => 'favorites#create'

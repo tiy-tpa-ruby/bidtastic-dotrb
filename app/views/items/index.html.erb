@@ -23,7 +23,7 @@
         <h5>Current Bid:</h5>
         <p>CURRENT BID GOES HERE</p>
         <h5> Description: </h5>
-        <p><%= item.description %></p>
+        <p><%= truncate(item.description, length: 50, seperator: ' ') %></p>
         <%= link_to item do %>
           <button class="placebid btn btn-default" role="button"><span class="glyphicon glyphicon-flag"  aria-hidden="true"></span>Place Bid</button>
         <% end %>

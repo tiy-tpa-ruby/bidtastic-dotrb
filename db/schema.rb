@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509150130) do
+ActiveRecord::Schema.define(version: 20170510150356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "bids", force: :cascade do |t|
     t.integer  "created_by_id"
@@ -33,8 +41,10 @@ ActiveRecord::Schema.define(version: 20170509150130) do
   end
 
   create_table "files", force: :cascade do |t|
-    t.binary "content"
-    t.text   "metadata"
+    t.binary  "content"
+    t.text    "metadata"
+    t.integer "item_id"
+    t.index ["item_id"], name: "index_files_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade do |t|
@@ -56,10 +66,12 @@ ActiveRecord::Schema.define(version: 20170509150130) do
     t.string   "provider"
     t.string   "uid"
     t.string   "access_token"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
   add_foreign_key "favorites", "items"
   add_foreign_key "favorites", "users"
+  add_foreign_key "files", "items"
 end

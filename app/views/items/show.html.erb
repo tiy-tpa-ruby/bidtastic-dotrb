@@ -3,9 +3,11 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Auction List
   <% end %>
-  <%= link_to edit_item_path(@item), class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit Item
+  <% if admin_logged_in? %>
+    <%= link_to edit_item_path(@item), class: 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit Item
+    <% end %>
   <% end %>
   <h1><%= @item.name %></h1>
 </div>
@@ -19,17 +21,16 @@
     <p> <%= @item.description %></p>
     <h4>Item Category:</h4>
     <p><%= @item.category %></p>
-    <h4>Minimum Bid:<%= @item.minimum_bid %></h4>
-    <h4>Bidding Increment:<%= @item.bid_increment %></h4>
+    <h4>Minimum Bid: <%= number_to_currency(@item.minimum_bid, precision: 0) %></h4>
+    <h4>Bidding Increment: <%= number_to_currency(@item.bid_increment, precision: 0) %></h4>
   </div>
 </div>
 <div class="body-show">
+  <% if user_logged_in? %>
+    <span> <%= render "bids/form" %></span>
+  <% end %>
   <h5> Current Bids:</h5>
   <ul class="list-group">
-    <li class="list-group-item">Mr. John Jacob Astor IV <span class="badge">$34,000</span></li>
-    <li class="list-group-item">Mrs. Marlene White <span class="badge">$38,000</span></li>
-    <li class="list-group-item">Mrs. Paris Hilton<span class="badge">$48,000</span></</li>
-    <li class="list-group-item">Dr. Miles Holchstein<span class="badge">$52,000</span></li>
-    <li class="list-group-item">Mrs. Lisa Van Buren<span class="badge">$58,000</span></li>
+    <%= render @item.bids.order(bid_amount: :desc) %>
   </ul>
 </div>

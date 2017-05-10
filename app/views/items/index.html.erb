@@ -30,10 +30,8 @@
         <% end %>
         <h5> Description: </h5>
         <p><%= truncate(item.description, length: 50, seperator: ' ') %></p>
-        <% if user_logged_in? %>
-          <%= link_to item do %>
-            <button class="placebid btn btn-default" role="button"><span class="glyphicon glyphicon-flag"  aria-hidden="true"></span>Place Bid</button>
-          <% end %>
+        <%= link_to item do %>
+          <button class="placebid btn btn-default" role="button"><span class="glyphicon glyphicon-flag"  aria-hidden="true"></span>Place Bid</button>
         <% end %>
         <% if admin_logged_in? %>
           <%= link_to edit_item_path(item) do %>

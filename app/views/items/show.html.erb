@@ -26,7 +26,9 @@
   </div>
 </div>
 <div class="body-show">
-  <span> <%= render "bids/form" %></span>
+  <% if user_logged_in? %>
+    <span> <%= render "bids/form" %></span>
+  <% end %>
   <h5> Current Bids:</h5>
   <ul class="list-group">
     <%= render @item.bids.order(bid_amount: :desc) %>

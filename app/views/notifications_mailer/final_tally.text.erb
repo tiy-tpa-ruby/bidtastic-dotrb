@@ -1,3 +1,10 @@
-Notifications#final_tally
+Welcome to Bidtastic!
 
-<%= @greeting %>, find me in app/views/notifications_mailer/final_tally.text.erb
+Final Tally Report:
+
+<%- table = TTY::Table.new(header: ['Name','Description','Bid Winner','Final Price']) %>
+<%- @items.each do |item| %>
+  <%- table << [item.name, truncate(item.description, length: 30, seperator: ' '), "#WINNER HERE#", "#FINAL PRICE#"] %>
+<%- end %>
+
+<%= table.render(:unicode) %>

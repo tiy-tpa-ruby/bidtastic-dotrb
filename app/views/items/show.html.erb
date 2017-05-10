@@ -1,35 +1,35 @@
 <div class="page-header">
   <%= link_to items_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Auction List
   <% end %>
-  <%= link_to edit_item_path(@item), class: 'btn btn-primary' do %>
+  <%= link_to edit_item_path(@item), class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    Edit Item
   <% end %>
-  <h1>Show item</h1>
+  <h1><%= @item.name %></h1>
 </div>
-
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @item.name %></dd>
-
-  <dt>Description:</dt>
-  <dd><%= @item.description %></dd>
-
-  <dt>Created by:</dt>
-  <dd><%= @item.created_by %></dd>
-
-  <dt>Category:</dt>
-  <dd><%= @item.category %></dd>
-
-  <dt>Minimum bid:</dt>
-  <dd><%= @item.minimum_bid %></dd>
-
-  <dt>Bid increment:</dt>
-  <dd><%= @item.bid_increment %></dd>
-
-  <dt>Image data:</dt>
-  <dd><%= image_tag(@item.image_url(:medium)) %></dd>
-
-</dl>
+<div class="tex-media">
+  <div class="media-left">
+  <%= image_tag(@item.image_url(:medium)) %>
+    </a>
+  </div>
+  <div class="media-body">
+    <h4>Item Description:</h4>
+    <p> <%= @item.description %></p>
+    <h4>Item Category:</h4>
+    <p><%= @item.category %></p>
+    <h4>Minimum Bid:<%= @item.minimum_bid %></h4>
+    <h4>Bidding Increment:<%= @item.bid_increment %></h4>
+  </div>
+</div>
+<div class="body-show">
+  <h5> Current Bids:</h5>
+  <ul class="list-group">
+    <li class="list-group-item">Mr. John Jacob Astor IV <span class="badge">$34,000</span></li>
+    <li class="list-group-item">Mrs. Marlene White <span class="badge">$38,000</span></li>
+    <li class="list-group-item">Mrs. Paris Hilton<span class="badge">$48,000</span></</li>
+    <li class="list-group-item">Dr. Miles Holchstein<span class="badge">$52,000</span></li>
+    <li class="list-group-item">Mrs. Lisa Van Buren<span class="badge">$58,000</span></li>
+  </ul>
+</div>

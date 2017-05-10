@@ -1,10 +1,20 @@
 class BidsController < ApplicationController
-
   def create
     @item = Item.find(params[:item_id])
+
+    unless logged_in?
+      redirect_to item_path(@item), notice: "Must be logged in to make a bid"
+      return
+    end
+
     @bid = @item.bids.create(bid_params)
     @bid.created_by = current_user
-    @bid.save
+
+    if @bid.save
+      redirect_to item_path(@item), notice: "Bid accepted!"
+    else
+      redirect_to item_path(@item), notice: "Unable to accept this bid"
+    end
   end
 
 private

@@ -10,7 +10,7 @@ class NotificationsMailer < ApplicationMailer
     @items = Item.all
 
     mail to: "to@example.org",
-         subject: "Bidtastic - Pre Auction Report"
+         subject: "Bidtastic: Pre Auction Report"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -19,9 +19,9 @@ class NotificationsMailer < ApplicationMailer
   #   en.notifications_mailer.outbid.subject
   #
   def outbid
-    @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: "to@example.org",
+    subject: "Bidtastic: You have been Outbid!"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -30,8 +30,9 @@ class NotificationsMailer < ApplicationMailer
   #   en.notifications_mailer.final_tally.subject
   #
   def final_tally
-    @greeting = "Hi"
+    @items = Item.all
 
-    mail to: "to@example.org"
+    mail to: "to@example.org",
+    subject: "Bidtastic: Final Tally Report"
   end
 end

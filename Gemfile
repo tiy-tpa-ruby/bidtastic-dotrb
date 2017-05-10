@@ -60,6 +60,9 @@ gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'jquery-ui-rails'
 
+# TTY table support
+gem 'tty-table'
+
 # Image uploading support with Shrine
 gem 'shrine'
 gem 'shrine-sql'

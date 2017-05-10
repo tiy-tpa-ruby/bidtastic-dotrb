@@ -23,7 +23,8 @@
       <%= image_tag(item.image_url(:small)) %>
       <div class="caption">
         <% if item.bids.empty? %>
-          <h5>No bids! Be the first to bid!</h5>
+        <h5>Current Bid:</h5>
+          <p>No bids! Be the first to bid!</p>
         <% else %>
           <h5>Current Bid:</h5>
           <p><%= number_to_currency(item.largest_bid_amount, precision: 0) %></p>

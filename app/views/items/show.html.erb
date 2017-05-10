@@ -11,12 +11,11 @@
   <% end %>
   <h1><%= @item.name %></h1>
 </div>
-<div class="media-tex media">
-  <div class="media-left">
-  <%= image_tag(@item.image_url(:medium)) %>
-    </a>
+<div class="row media-tex">
+  <div class="col-xs-12 col-md-4 item-show-image">
+    <%= image_tag(@item.image_url(:medium), class: "img-responsive") %>
   </div>
-  <div class="media-body">
+  <div class="col-xs-12 col-md-8">
     <h4>Item Description:</h4>
     <p> <%= @item.description %></p>
     <h4>Item Category:</h4>
@@ -31,6 +30,7 @@
   <% end %>
   <h5> Current Bids:</h5>
   <ul class="list-group">
+    <li class="list-group-item bidamount-list-group-item"><%= render "bids/form" %></span></li>
     <%= render @item.bids.order(bid_amount: :desc) %>
   </ul>
 </div>

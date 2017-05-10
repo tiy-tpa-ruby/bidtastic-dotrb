@@ -19,8 +19,8 @@
     <p> <%= @item.description %></p>
     <h4>Item Category:</h4>
     <p><%= @item.category %></p>
-    <h4>Minimum Bid:<%= @item.minimum_bid %></h4>
-    <h4>Bidding Increment:<%= @item.bid_increment %></h4>
+    <h4>Minimum Bid: <%= number_to_currency(@item.minimum_bid, precision: 0) %></h4>
+    <h4>Bidding Increment: <%= number_to_currency(@item.bid_increment, precision: 0) %></h4>
   </div>
 </div>
 <div class="body-show">

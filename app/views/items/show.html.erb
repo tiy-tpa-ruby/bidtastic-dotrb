@@ -59,8 +59,9 @@
 
 
 
-
-
-  <span> <%= render @item.bids %></span>
-
-  <span> <%= render "bids/form" %></span>
+<% @item.bids.each do |bid| %>
+  <div class="jumbotron">
+     <%= render @item.bids %>
+  </div>
+<% end %>
+<span> <%= render "bids/form" %></span>

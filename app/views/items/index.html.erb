@@ -11,9 +11,9 @@
     <div class="thumbnail">
       <div class="textline">
         <h4><%= item.name %></h4>
-        <% if logged_in? && favorited(item.id) == true %>
+        <% if user_logged_in? && favorited(item.id) == true %>
           <p class="faved-heart" data-itemid="<%= item.id %>"> &hearts;</p>
-        <% elsif logged_in? && favorited(item.id) == false %>
+        <% elsif user_logged_in? && favorited(item.id) == false %>
           <p class="fav-heart" data-itemid="<%= item.id %>"> &hearts;</p>
         <% end %>
       </div>

@@ -11,16 +11,30 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def current_admin=(admin)
+    session[:admin_id] = admin.id
+  end
+
+  def current_admin
+    @current_admin ||= Admin.find_by(id: session[:admin_id])
+  end
+  helper_method :current_admin
+
   # Returns a boolean representing if the user is logged in
-  def logged_in?
+  def user_logged_in?
     !!current_user
   end
-  helper_method :logged_in?
+  helper_method :user_logged_in?
+
+  def admin_logged_in?
+    !!current_admin
+  end
+  helper_method :admin_logged_in?
 
   # Method to use in filter to ensure the user is logged in
   def authenticate!
-    unless logged_in?
-      redirect_to auth_path(provider: 'github')
+    unless user_logged_in? || admin_logged_in?
+      redirect_to auth_path
     end
   end
 end

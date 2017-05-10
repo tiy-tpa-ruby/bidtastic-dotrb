@@ -1,0 +1,33 @@
+<h1>Welcome to Bidtastic!</h1>
+
+<h2>Pre Auction Report:</h2>
+<p></p>
+
+<div class="datagrid">
+  <table>
+    <tbody>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Descrition</th>
+          <th>Category</th>
+          <th>Min Bid</th>
+          <th>Bid Increment</th>
+        </tr>
+      </thead>
+
+
+      <%- @items.each.with_index do |item, index| %>
+        <tr class="<%= index.even? ? '' : 'alt' %>">
+          <td><%= image_tag(item.image_url(:thumbnail)) %></td>
+          <td><%= item.name %></td>
+          <td><%= truncate(item.description, length: 26, seperator: ' ') %></td>
+          <td><%= item.category %></td>
+          <td><%= item.minimum_bid %></td>
+          <td><%= item.bid_increment %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

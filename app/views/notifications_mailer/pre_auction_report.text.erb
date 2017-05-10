@@ -1,0 +1,24 @@
+Welcome to Bidtastic!
+
+Pre Auction Report:
+
+  +------+--------------+----------+---------+---------------+
+  | Name | Description  | Category | Min Bid | Bid Increment |
+  +------+--------------+----------+---------+---------------+
+
+  <%- @items.each do |item| %>
+    NAME: <%= item.name %>
+    DESCRIPTION: <%= truncate(item.description, length: 30, seperator: ' ') %>
+    CATEGORY <%= item.category %>
+    MIN BID: <%= item.minimum_bid %>
+    BID INCREMENT: <%= item.bid_increment %>
+
+  <% end %>
+
+table = TTY::Table.new header: ['Name','Description','Category','Min Bid','Bid Increment'],
+  rows: [<%- @items.each do |item| %>
+    '<%= item.name %>'
+    '<%= truncate(item.description, length: 30, seperator: ' ') %>'
+    '<%= item.minimum_bid %>'
+    '<%= item.bid_increment %>'
+  <% end %>]

@@ -27,7 +27,7 @@
           <p><%= number_to_currency(item.largest_bid_amount, precision: 0) %></p>
         <% end %>
         <h5> Description: </h5>
-        <p><%= item.description %></p>
+        <p><%= truncate(item.description, length: 50, seperator: ' ') %></p>
         <%= link_to item do %>
           <button class="placebid btn btn-default" role="button"><span class="glyphicon glyphicon-flag"  aria-hidden="true"></span>Place Bid</button>
         <% end %>

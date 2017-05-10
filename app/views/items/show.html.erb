@@ -59,9 +59,14 @@
 
 
 
-<% @item.bids.each do |bid| %>
-  <div class="jumbotron">
-     <%= render @item.bids %>
-  </div>
-<% end %>
+
+<table class="table">
+  <tr>
+    <th>Bid Amount</th>
+    <th>Bidder Name</th>
+  </tr>
+  <tr>
+    <%= render @item.bids.order(bid_amount: :desc) %>
+  </tr>
+</table>
 <span> <%= render "bids/form" %></span>

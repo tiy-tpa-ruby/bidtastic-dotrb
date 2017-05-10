@@ -13,7 +13,6 @@ class BidsController < ApplicationController
     if @bid.save
       redirect_to item_path(@item), notice: "Bid accepted!"
     else
-      Rails.logger.debug ["Failed to validate", @bid.errors]
       redirect_to item_path(@item), notice: "Unable to accept this bid"
     end
   end

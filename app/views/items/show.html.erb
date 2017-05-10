@@ -3,9 +3,11 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Auction List
   <% end %>
-  <%= link_to edit_item_path(@item), class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit Item
+  <% if admin_logged_in? %>
+    <%= link_to edit_item_path(@item), class: 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit Item
+    <% end %>
   <% end %>
   <h1><%= @item.name %></h1>
 </div>
@@ -24,7 +26,9 @@
   </div>
 </div>
 <div class="body-show">
-  <span> <%= render "bids/form" %></span>
+  <% if user_logged_in? %>
+    <span> <%= render "bids/form" %></span>
+  <% end %>
   <h5> Current Bids:</h5>
   <ul class="list-group">
     <%= render @item.bids.order(bid_amount: :desc) %>

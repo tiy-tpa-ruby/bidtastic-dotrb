@@ -1,10 +1,11 @@
 body {
   background-image: url(https://s-media-cache-ak0.pinimg.com/736x/a4/9e/98/a49e980819401f79a707281edbb5bc64.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment:fixed;
-    background-size: cover;
-    background-color: #464646;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
+  background-color: #464646;
+  background-blend-mode: multiply;
 }
 
 .placebid {
@@ -31,7 +32,7 @@ body {
   color: rgb(196, 145, 42);
 }
 
-.tex-media {
+.media-tex {
 
   color: rgb(196, 145, 42);
   font-family: sans-serif;
@@ -70,4 +71,21 @@ body {
   color: rgb(187, 149, 35);
   font-family: sans-serif;
   font-variant: small-caps;
+}
+
+@media (max-width: $screen-sm-min) {
+  .item-show-image {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.body-show {
+  .bidamount-list-group-item {
+    background-color: black;
+  }
+
+  .bid-list-group-item {
+    background-color: black;
+  }
 }

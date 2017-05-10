@@ -13,7 +13,7 @@ class BidsController < ApplicationController
     if @bid.save
       redirect_to item_path(@item), notice: "Bid accepted!"
     else
-      redirect_to item_path(@item), notice: "Unable to accept this bid"
+      redirect_to item_path(@item), notice: "Unable to accept this bid because #{@bid.errors.full_messages.join}"
     end
   end
 

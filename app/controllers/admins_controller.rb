@@ -6,9 +6,7 @@ class AdminsController < ApplicationController
   def create
     admin = Admin.new(admin_params)
     if admin.save
-      admin_session[:admin_id] = admin.id
-        # Redirect to the root, *OR* to whatever the main page of your app is
-        # (if your root_path is your landing page...)
+      session[:admin_id] = admin.id
       redirect_to items_path
     else
       redirect_to signup_path

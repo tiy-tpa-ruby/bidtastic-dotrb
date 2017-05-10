@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_admin=(admin)
-    admin_session[:admin_id] = admin.id
+    session[:admin_id] = admin.id
   end
 
   def current_admin
-    @current_admin ||= Admin.find_by(id: admin_session[:admin_id])
+    @current_admin ||= Admin.find_by(id: session[:admin_id])
   end
   helper_method :current_admin
 

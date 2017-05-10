@@ -38,8 +38,7 @@
           <li class="active"><%= link_to "Home", items_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right pull-right">
-          <% if logged_in? %>
-            <p class="navbar-text pull-right">Welcome: <%= current_user.name %></p>
+          <% if logged_in? || signed_in? %>
             <li> <%= link_to 'Logout', logout_path, data: { confirm: 'Are you sure?' } %></li>
           <% end %>
         </ul>

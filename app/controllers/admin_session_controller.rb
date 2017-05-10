@@ -7,7 +7,7 @@ class AdminSessionController < ApplicationController
     password = params[:password]
     admin = Admin.find_by(email: email)
     if admin && admin.authenticate(password)
-      admin_session[:admin_id] = admin.id
+      session[:admin_id] = admin.id
       redirect_to items_path
     else
       redirect_to signin_path
@@ -15,7 +15,7 @@ class AdminSessionController < ApplicationController
   end
 
   def destroy
-    admin_session[:admin_id] = nil
+    session[:admin_id] = nil
     redirect_to root_path
   end
 end

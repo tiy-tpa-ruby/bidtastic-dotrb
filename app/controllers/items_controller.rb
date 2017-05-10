@@ -22,6 +22,7 @@
   # POST /items
   def create
     @item = Item.new(item_params)
+    @item.created_by = current_user
 
     if @item.save
       redirect_to @item, notice: 'Item was successfully created.'
@@ -51,6 +52,6 @@
 
   # Only allow a trusted parameter "white list" through.
   def item_params
-    params.require(:item).permit(:name, :description, :created_by, :category, :minimum_bid, :bid_increment, :image)
+    params.require(:item).permit(:name, :description, :category, :minimum_bid, :bid_increment, :image)
   end
 end

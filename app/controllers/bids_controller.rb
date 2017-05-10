@@ -2,7 +2,7 @@ class BidsController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
 
-    unless logged_in?
+    unless user_logged_in?
       redirect_to item_path(@item), notice: "Must be logged in to make a bid"
       return
     end

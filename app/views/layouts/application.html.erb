@@ -30,13 +30,13 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><%= link_to "Home", items_path %></li>
-          <li <li class="active"><%= link_to "Attire", items_path %></li>
-          <li <li class="active"><%= link_to "Leisure", items_path %></li>
-          <li <li class="active"><%= link_to "Jewelry", items_path %></li>
-          <li <li class="active"><%= link_to "Art", items_path %></li>
-          <li <li class="active"><%= link_to "Memorabilia", items_path %></li>
-          <li <li class="active"><%= link_to "Other", items_path %></li>
+          <li class="category-link active"><%= link_to "Home", items_path %></li>
+          <li class="category-link active"><%= link_to "Attire", items_path %></li>
+          <li class="category-link active"><%= link_to "Leisure", items_path %></li>
+          <li class="category-link active"><%= link_to "Jewelry", items_path %></li>
+          <li class="category-link active"><%= link_to "Art", items_path %></li>
+          <li class="category-link active"><%= link_to "Memorabilia", items_path %></li>
+          <li class="category-link active"><%= link_to "Other", items_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right pull-right">
           <% if user_logged_in? %>

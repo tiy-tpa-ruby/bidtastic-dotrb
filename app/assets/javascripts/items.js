@@ -1,7 +1,25 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+//
+//
+
 
 $(document).ready(function() {
+  $('.category-link a').on('click', function(event){
+    event.preventDefault()
+
+    let category = $(this).text()
+
+    console.log(`you clicked on ${category}`)
+
+    $(this).css({color: 'red'})
+
+    $.ajax({
+      url: '/items',
+      data: { category: category },
+      dataType: 'script'
+    })
+  })
 
   // Favoriting
   $('body').on('click', '.fav-heart', function(event) {

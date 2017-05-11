@@ -4,7 +4,7 @@ Final Tally Report:
 
 <%- table = TTY::Table.new(header: ['Name','Description','Bid Winner','Final Price']) %>
 <%- @items.each do |item| %>
-  <%- table << [item.name, truncate(item.description, length: 30, seperator: ' '), "#WINNER HERE#", "#FINAL PRICE#"] %>
+  <%- table << [item.name, truncate(item.description, length: 30, seperator: ' '), "<%= item.bid_winner %>, <%= item.largest_bid_amount %>"] %>
 <%- end %>
 
 <%= table.render(:unicode) %>

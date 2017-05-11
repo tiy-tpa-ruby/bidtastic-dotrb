@@ -10,6 +10,10 @@ class Item < ApplicationRecord
   validates :minimum_bid, presence: true
   validates :bid_increment, presence: true
 
+  def self.categories
+    %W(Leisure Attire Jewelry Art Memorabilia/Antiques Other)
+  end
+
   def largest_bid_amount
     # equivalent, shortcuts -- "symbol to proc"
     bids.max_by(&:bid_amount).bid_amount

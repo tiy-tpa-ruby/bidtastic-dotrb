@@ -28,8 +28,8 @@
           <td><%= image_tag(item.image_url(:thumbnail)) %></td>
           <td><%= item.name %></td>
           <td><%= truncate(item.description, length: 26, seperator: ' ') %></td>
-          <td>Winning User goes here</td>
-          <td>Final Price Here</td>
+          <td><%= item.bid_winner %></td>
+          <td><%= item.largest_bid_amount %></td>
         </tr>
       <% end %>
     </tbody>

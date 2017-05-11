@@ -14,9 +14,9 @@ class NotificationsMailer < ApplicationMailer
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #   en.notifications_mailer.outbid.subject
-  def outbid(item, user)
-    @user = user
+  def outbid(item)
     @item = item
+    @user = @item.bids.second_to_last.created_by
 
     mail(to: @user.email, subject: "Bidtastic: You have been Outbid!")
   end

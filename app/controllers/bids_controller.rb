@@ -12,7 +12,7 @@ class BidsController < ApplicationController
 
     if @bid.save
       redirect_to item_path(@item), notice: "Bid accepted!"
-      NotificationsMailer.outbid(item, current_user).deliver_now
+      NotificationsMailer.outbid(@item).deliver_later
     else
       redirect_to item_path(@item), notice: "Unable to accept this bid because #{@bid.errors.full_messages.join}"
     end

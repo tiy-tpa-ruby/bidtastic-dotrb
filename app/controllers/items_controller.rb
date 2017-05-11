@@ -3,7 +3,13 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = Item.all
+    search_category = params[:category]
+
+    if search_category
+      @items = Item.where(category: search_category)
+    else
+      @items = Item.all
+    end
   end
 
   # GET /items/1

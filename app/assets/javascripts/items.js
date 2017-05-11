@@ -11,7 +11,6 @@ $(document).ready(function() {
 
     console.log(`you clicked on ${category}`)
 
-    $(this).css({color: 'red'})
 
     $.ajax({
       url: '/items',

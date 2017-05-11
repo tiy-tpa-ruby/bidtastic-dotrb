@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   # Method to use in filter to ensure the user is logged in
   def authenticate!
     unless user_logged_in? || admin_logged_in?
-      redirect_to auth_path
+      redirect_to login_path
     end
   end
 end

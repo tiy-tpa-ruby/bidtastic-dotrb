@@ -15,6 +15,10 @@ class Item < ApplicationRecord
     bids.max_by(&:bid_amount).bid_amount
   end
 
+  def bid_winner
+    bids.max_by(&:bid_amount).created_by.name
+  end
+
   def next_minimum_bid
     bids_in_order = self.bids.order(:bid_amount)
 

@@ -3,36 +3,31 @@ class NotificationsMailer < ApplicationMailer
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
-  #
   #   en.notifications_mailer.pre_auction_report.subject
-  #
-  def pre_auction_report
+  def pre_auction_report(items, current_admin)
     @items = Item.all
+    @admin = current_admin
 
-    mail to: "to@example.org",
-         subject: "Bidtastic: Pre Auction Report"
+    mail(to: @admin.email, subject: "Bidtastic: Pre Auction Report")
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
-  #
   #   en.notifications_mailer.outbid.subject
-  #
-  def outbid
+  def outbid(item)
+    @item = item
+    @user = @item.bids.second_to_last.created_by
 
-    mail to: "to@example.org",
-    subject: "Bidtastic: You have been Outbid!"
+    mail(to: @user.email, subject: "Bidtastic: You have been Outbid!")
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
-  #
   #   en.notifications_mailer.final_tally.subject
-  #
-  def final_tally
+  def final_tally(items, current_admin)
     @items = Item.all
+    @admin = current_admin
 
-    mail to: "to@example.org",
-    subject: "Bidtastic: Final Tally Report"
+    mail(to: @admin.email, subject: "Bidtastic: Final Tally Report")
   end
 end

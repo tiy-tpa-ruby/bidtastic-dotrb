@@ -20,7 +20,7 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <div class="textline">
-        <h4><%= item.name %></h4>
+        <h3><%= item.name %></h3>
         <% if user_logged_in? && favorited(item.id) == true %>
           <p class="faved-heart" data-itemid="<%= item.id %>"> &hearts;</p>
         <% elsif user_logged_in? && favorited(item.id) == false %>
@@ -31,14 +31,14 @@
       <%= image_tag(item.image_url(:small)) %>
       <div class="caption">
         <% if item.bids.empty? %>
-        <h5>Current Bid:</h5>
-          <p>No bids! Be the first to bid!</p>
+        <h3>Current Bid:</h3>
+          <h4>No bids! Be the first to bid!</h4>
         <% else %>
-          <h5>Current Bid:</h5>
-          <p><%= number_to_currency(item.largest_bid_amount, precision: 0) %></p>
+          <h3>Current Bid:</h3>
+          <h4><%= number_to_currency(item.largest_bid_amount, precision: 0) %></h4>
         <% end %>
-        <h5> Description: </h5>
-        <p><%= truncate(item.description, length: 50, seperator: ' ') %></p>
+        <h3> Description: </h3>
+        <h4><%= truncate(item.description, length: 50, seperator: ' ') %></h4>
         <%= link_to item do %>
           <button class="placebid btn btn-default" role="button"><span class="glyphicon glyphicon-flag"  aria-hidden="true"></span>Place Bid</button>
         <% end %>

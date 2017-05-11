@@ -1,18 +1,6 @@
 class NotificationsMailer < ApplicationMailer
   default from: "webmaster@bidtastic.com"
 
-
-  require 'sendgrid-ruby'
-  include SendGrid
-
-  sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-  response = sg.client.mail._("send").post(request_body: data)
-  puts response.status_code
-  puts response.body
-  puts response.headers
-
-
-
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #   en.notifications_mailer.pre_auction_report.subject

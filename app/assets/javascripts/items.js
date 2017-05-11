@@ -3,7 +3,6 @@
 //
 //
 
-
 $(document).ready(function() {
   $('.category-link a').on('click', function(event){
     event.preventDefault()
@@ -22,7 +21,7 @@ $(document).ready(function() {
   })
 
   // Favoriting
-  $('body').on('click', '.fav-heart', function(event) {
+  $('body').on('click touchstart', '.fav-heart', function(event) {
     let itemId = $(this).data("itemid")
     $(this).removeClass('fav-heart')
     $(this).addClass('faved-heart')
@@ -34,7 +33,7 @@ $(document).ready(function() {
   })
 
   // Unfavoriting
-  $('body').on('click', '.faved-heart', function(event) {
+  $('body').on('click touchstart', '.faved-heart', function(event) {
     let itemId = $(this).data("itemid")
     $(this).removeClass('faved-heart')
     $(this).addClass('fav-heart')

@@ -9,6 +9,11 @@ class Item < ApplicationRecord
   validates :category, presence: true
   validates :minimum_bid, presence: true
   validates :bid_increment, presence: true
+  validates :image_data, presence: true
+
+  def self.categories
+    %W(Leisure Attire Jewelry Art Memorabilia/Antiques Other)
+  end
 
   def largest_bid_amount
     # equivalent, shortcuts -- "symbol to proc"

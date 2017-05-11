@@ -7,7 +7,9 @@ class Bid < ApplicationRecord
   validate :bid_amount_exceeds_minimum
 
   def bid_amount_exceeds_minimum
-    if bid_amount < item.next_minimum_bid
+    if bid_amount.nil?
+      errors.add(:bid_amount)
+    elsif bid_amount < item.next_minimum_bid
       errors.add(:bid_amount, "Must be at least #{item.next_minimum_bid}")
     end
   end

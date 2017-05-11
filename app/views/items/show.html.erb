@@ -3,6 +3,11 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Auction List
   <% end %>
+    <% if user_logged_in? && favorited(@item.id) == true %>
+    <p class="faved-heart" data-itemid="<%= item.id %>"> &hearts;</p>
+  <% elsif user_logged_in? && favorited(@item.id) == false %>
+    <p class="fav-heart" data-itemid="<%= @item.id %>"> &hearts;</p>
+  <% end %>
   <% if admin_logged_in? %>
     <%= link_to edit_item_path(@item), class: 'btn btn-default' do %>
       <span class="glyphicon glyphicon-pencil"></span>
@@ -10,27 +15,24 @@
     <% end %>
   <% end %>
   <h1><%= @item.name %></h1>
+  <h4><%= @item.category %></h4>
 </div>
 <div class="row media-tex">
   <div class="col-xs-12 col-md-4 item-show-image">
     <%= image_tag(@item.image_url(:medium), class: "img-responsive") %>
   </div>
   <div class="col-xs-12 col-md-8">
-    <h4>Item Description:</h4>
-    <p> <%= @item.description %></p>
-    <h4>Item Category:</h4>
-    <p><%= @item.category %></p>
-    <h4>Minimum Bid: <%= number_to_currency(@item.minimum_bid, precision: 0) %></h4>
-    <h4>Bidding Increment: <%= number_to_currency(@item.bid_increment, precision: 0) %></h4>
+    <h3> <%= @item.description %></h3>
+    <h3>Minimum Bid: <%= number_to_currency(@item.minimum_bid, precision: 0) %></h3>
+    <h3>Bidding Increment: <%= number_to_currency(@item.bid_increment, precision: 0) %></h3>
   </div>
 </div>
 <div class="body-show">
-  <% if user_logged_in? %>
-    <span> <%= render "bids/form" %></span>
-  <% end %>
-  <h5> Current Bids:</h5>
+  <h3> Current Bids:</h3>
   <ul class="list-group">
-    <li class="list-group-item bidamount-list-group-item"><%= render "bids/form" %></span></li>
+    <% if user_logged_in? %>
+      <li class="list-group-item bidamount-list-group-item"><%= render "bids/form" %></span></li>
+    <% end %>
     <%= render @item.bids.order(bid_amount: :desc) %>
   </ul>
 </div>

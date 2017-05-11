@@ -70,6 +70,9 @@ gem 'roda'
 gem "image_processing"
 gem "mini_magick", ">= 4.3.5"
 
+# Automatically inline mail CSS styles
+gem 'premailer-rails', '~> 1.9', '>= 1.9.6'
+
 group :development do
   gem 'awesome_print'
   gem 'dotenv-rails'

@@ -79,4 +79,5 @@ gem 'refile', github: 'gstark/refile', branch: 'updates-for-rails-5', require: '
 gem 'refile-postgres'
 group :production do
   gem 'rails_12factor'
+  gem 'sendgrid-ruby'
 end

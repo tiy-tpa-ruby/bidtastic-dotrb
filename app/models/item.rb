@@ -12,11 +12,14 @@ class Item < ApplicationRecord
 
   def largest_bid_amount
     # equivalent, shortcuts -- "symbol to proc"
-    bids.max_by(&:bid_amount).bid_amount
+    big_bid = bids.max_by(&:bid_amount)
+    big_bid ? big_bid.bid_amount : "No Bids"
   end
 
   def bid_winner
-    bids.max_by(&:bid_amount).created_by.name
+    winner = bids.max_by(&:bid_amount)
+
+    winner ? winner.created_by.name : "No Winner"
   end
 
   def next_minimum_bid

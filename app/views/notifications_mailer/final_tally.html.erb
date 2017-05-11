@@ -1,20 +1,26 @@
-<h1>Welcome to Bidtastic!</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+<body>
+  <h1>Welcome to Bidtastic!</h1>
 
-<h2>Final Tally Report:</h2>
-<p></p>
+  <h2>Final Tally Report:</h2>
+  <p></p>
 
-<div class="datagrid">
-  <table>
-    <tbody>
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Name</th>
-          <th>Descrition</th>
-          <th>Bid Winner</th>
-          <th>Item Price</th>
-        </tr>
-      </thead>
+  <div class="datagrid">
+    <table>
+      <tbody>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Descrition</th>
+            <th>Bid Winner</th>
+            <th>Item Price</th>
+          </tr>
+        </thead>
 
 
       <%- @items.each.with_index do |item, index| %>
@@ -29,3 +35,5 @@
     </tbody>
   </table>
 </div>
+</body>
+</html>

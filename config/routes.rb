@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   post '/signin'   => 'admin_session#create'
   get  '/signout'  => 'admin_session#destroy'
 
+  #Mailer routes
+  get '/prereport' => 'admins#send_pre_email'
+  get '/final_report' => 'admins#send_post_email'
+
   mount Shrine::DownloadEndpoint => "/attachments"
 
   post 'favorites/:itemId'           => 'favorites#create'

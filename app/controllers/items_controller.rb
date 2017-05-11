@@ -1,4 +1,6 @@
-  class ItemsController < ApplicationController
+class ItemsController < ApplicationController
+  before_action :authenticate!
+
   # GET /items
   def index
     @items = Item.all

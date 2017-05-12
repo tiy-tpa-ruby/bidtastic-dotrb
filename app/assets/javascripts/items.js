@@ -27,7 +27,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: "POST",
-      url: 'favorites/' + itemId
+      url: `/favorites/${itemId}`
     })
   })
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: "DELETE",
-      url: 'favorites/destroy/' + itemId
+      url: '/favorites/destroy/' + itemId
     })
   })
 })

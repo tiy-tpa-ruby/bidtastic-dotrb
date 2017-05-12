@@ -24,7 +24,7 @@ class SessionController < ApplicationController
 
   # Show the failure page
   def failure
-    # TODO, create failure.html.erb
+    redirect_to root_path
   end
 
 end

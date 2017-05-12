@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Auction List
   <% end %>
-    <% if user_logged_in? && favorited(@item.id) == true %>
+  <% if user_logged_in? && favorited(@item.id) == true %>
     <p class="faved-heart" data-itemid="<%= @item.id %>"> &hearts;</p>
   <% elsif user_logged_in? && favorited(@item.id) == false %>
     <p class="fav-heart" data-itemid="<%= @item.id %>"> &hearts;</p>
